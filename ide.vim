@@ -1,7 +1,7 @@
 function! Compile()
 	exec "w"
 	if &filetype == "cpp"
-		exec "!g++ -g -o %< % -Wall"
+		exec "!g++ -std=c++11 -g -o %< % -Wall"
 	endif
 	if &filetype == "c"
 		exec "!gcc -g -o %< % -Wall"

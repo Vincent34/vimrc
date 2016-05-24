@@ -11,6 +11,7 @@ set autoindent
 set cin
 set sw=4
 set ts=4
+set fdm=indent
 let g:tex_flavor = "latex"
 command Check !python check.py %<
 map<F12> <esc>:e ~/.vimrc<cr>
