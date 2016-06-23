@@ -53,9 +53,9 @@ imap<F5> <esc>:call Debug()<cr>
 map<F5> <esc>:call Debug()<cr>
 vmap<F5> <esc>:call Debug()<cr>
 
-imap<C-F9> <esc>:call Run()<cr>
-map<C-F9> <esc>:call Run()<cr>
-vmap<C-F9> <esc>:call Run()<cr>
+imap<F8> <esc>:call Run()<cr>
+map<F8> <esc>:call Run()<cr>
+vmap<F8> <esc>:call Run()<cr>
 
 imap<F9> <esc>:call Compile()<cr>
 map<F9> <esc>:call Compile()<cr>

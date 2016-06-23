@@ -15,6 +15,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/nerdtree'
 Plugin 'bling/vim-airline'
 Plugin 'fholgado/minibufexpl.vim'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 
 " c) 指定非Github的Git仓库的插件，需要使用git地址  
 " Bundle 'git://git.wincent.com/command-t.git'  
@@ -42,3 +43,15 @@ let g:miniBufExplMapCTabSwitchBufs=1
 let g:miniBufExplModSelTarget=1
 let g:miniBufExplMoreThanOne=0
 
+"------------nerdtree-git----------------------------
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ "Unknown"   : "?"
+    \ }
