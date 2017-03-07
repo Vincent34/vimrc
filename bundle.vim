@@ -16,6 +16,8 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'bling/vim-airline'
 Plugin 'fholgado/minibufexpl.vim'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'mileszs/ack.vim'
+"Plugin 'Valloric/YouCompleteMe'
 
 " c) 指定非Github的Git仓库的插件，需要使用git地址  
 " Bundle 'git://git.wincent.com/command-t.git'  
@@ -55,3 +57,10 @@ let g:NERDTreeIndicatorMapCustom = {
     \ "Clean"     : "✔︎",
     \ "Unknown"   : "?"
     \ }
+
+"------------YouCompleteMe---------------------------
+"let g:ycm_python_binary_path = 'python'
+
+"--------------Ack----------------------------------
+map <Leader>f :Ack!<space>
+let g:ackprg = 'ag --nogroup --nocolor --column'
