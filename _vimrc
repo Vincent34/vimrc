@@ -8,6 +8,7 @@ set autochdir
 set ts =4
 set sw =4
 set ruler
+set nowrap
 language messages none
 set langmenu=none
 color slate
@@ -28,9 +29,16 @@ autocmd Filetype python set omnifunc=pythoncomplete#Complete
 autocmd Filetype html set omnifunc=htmlcomplete#CompleteTags
 autocmd Filetype xml set omnifunc=xmlcomplete#CompleteTags
 autocmd Filetype javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd GUIEnter * simalt ~x
 
 map <F12> :e $VIM\_vimrc <cr>
 map<c-a> ggVG
+
+let mapleader="\<Space>"
+map <Leader>h 0
+map <Leader>l $
+
+
 function! Compile()
 	exec "w"
 	if &filetype == "cpp"
@@ -103,17 +111,21 @@ Plugin 'VundleVim/Vundle.vim'
   
 " 可以通过以下四种方式指定插件的来源  
 " a) 指定Github中vim-scripts仓库中的插件，直接指定插件名称即可，插件明中的空格使用“-”代替。  
-Plugin 'L9'
+" Plugin 'L9'
   
 " b) 指定Github中其他用户仓库的插件，使用“用户名/插件名称”的方式指定  
-Plugin 'Lokaltog/vim-easymotion'
+" Plugin 'Lokaltog/vim-easymotion'
 Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/nerdtree'
 Plugin 'bling/vim-airline'
 Plugin 'fholgado/minibufexpl.vim'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'mileszs/ack.vim'
+Plugin 'kien/ctrlp.vim'
 "Plugin 'Valloric/YouCompleteMe'
+"
+
+call vundle#end()
 
 " c) 指定非Github的Git仓库的插件，需要使用git地址  
 " Bundle 'git://git.wincent.com/command-t.git'  
@@ -132,7 +144,7 @@ let NERDTreeWinSize=30
 map<F2> :NERDTreeToggle<cr>
 
 "-----------------------vim-airline-------------------
-set laststatus=2
+" set laststatus=2
 
 "---------------------minibufexpl.vim-----------------
 let g:miniBufExplMapWindowNavVim=1
@@ -143,16 +155,33 @@ let g:miniBufExplMoreThanOne=0
 
 "------------nerdtree-git----------------------------
 let g:NERDTreeIndicatorMapCustom = {
-    \ "Modified"  : "✹",
-    \ "Staged"    : "✚",
-    \ "Untracked" : "✭",
-    \ "Renamed"   : "➜",
+    \ "Modified"  : "?",
+    \ "Staged"    : "?",
+    \ "Untracked" : "?",
+    \ "Renamed"   : "?",
     \ "Unmerged"  : "═",
-    \ "Deleted"   : "✖",
-    \ "Dirty"     : "✗",
-    \ "Clean"     : "✔︎",
+    \ "Deleted"   : "?",
+    \ "Dirty"     : "?",
+    \ "Clean"     : "??",
     \ "Unknown"   : "?"
     \ }
 
 "------------YouCompleteMe---------------------------
 "let g:ycm_python_binary_path = 'python'
+
+"--------------Ack----------------------------------
+map <Leader>f :Ack!<space>
+let g:ackprg = 'ag --nogroup --nocolor --column'
+
+"--------------CtrlP--------------------------------
+map <Leader>o :CtrlP<space> 
+let g:ctrlp_working_path_mode = 'ra'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
+
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
