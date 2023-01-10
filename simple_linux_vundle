@@ -36,6 +36,8 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'taglist.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'EasyGrep'
+Plugin 'easymotion/vim-easymotion'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
